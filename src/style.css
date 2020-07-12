@@ -59,12 +59,22 @@ body {
 .info {
   float: left;
   width: 80%;
-  height: 100px;
   padding-top: 10px;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 20px;
 }
-
+.info::after{
+  content: "";
+  width: 100%;
+  background-color: #333;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .image-container {
   clip-path: circle(50% at 50% 50%);
   width: 100px;
@@ -339,4 +349,46 @@ header {
   content: ":";
   margin-left: 10px;
   display: inline;
+}
+.clearfix{
+  clear: both;
+}
+.searchlist{
+  width: 80%;
+  margin: 0 auto;
+}
+.searchlist h2{
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+.searchlist > ul{
+  list-style: decimal;
+}
+.searchlist ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+}
+.searchlist .animal{
+  margin-bottom: 19px;
+  height: 200px;
+}
+.searchlist .animal > div{
+  display: inline;
+  float: left;
+}
+.searchlist .animal .photo{
+  width: 18%;
+  overflow: hidden;
+  height: 200px;
+  margin-right: 2%;
+  position: relative;
+}
+.searchlist .animal .photo img{
+  width: 110px;
+  height: 175px;
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid #00d5ff;
 }
