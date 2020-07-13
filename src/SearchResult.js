@@ -1,5 +1,5 @@
-import React from 'react';
-import Pet from './Pet';
+import React from "react";
+import Pet from "./Pet";
 
 export default function SearchResult({ pets }) {
   const petlist = pets;
@@ -10,8 +10,7 @@ export default function SearchResult({ pets }) {
         <h2>There is no results</h2>
       ) : (
         <ul>
-          {petlist.map(pet => (
-
+          {petlist.map((pet) => (
             <Pet
               key={pet.id}
               animal={pet.type}
@@ -21,11 +20,9 @@ export default function SearchResult({ pets }) {
               status={pet.status}
               media={pet.photos}
             />
-            
           ))}
         </ul>
       )}
-      
     </div>
-  )
+  );
 }

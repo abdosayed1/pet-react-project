@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import SearchParams from "./SearchParams";
 
 function App() {
-  return(
+  return (
     <div>
       <h1>Adapt Me!</h1>
       <SearchParams />
     </div>
-  )
+  );
   // return React.createElement("div", {}, [
   //   React.createElement("h1", {}, "Adopt Me!"),
   //   React.createElement(Pet, {
@@ -24,6 +24,6 @@ function App() {
   //   React.createElement(Pet, { name: "Doink", animal: "Cat", breed: "Mix" }),
   //   React.createElement(Pet, { name: "lio", animal: "Dog", breed: "Mix" }),
   // ]);
-};
+}
 
 ReactDOM.render(<App />, document.getElementById("root"));
