@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router, Link } from "@reach/router";
 import SearchParams from "./SearchParams";
+import Details from "./Details";
 
 function App() {
   return (
     <div>
-      <h1>Adapt Me!</h1>
-      <SearchParams />
+      <h1>
+        <Link to="/" className="logo">
+          Adapt Me!
+        </Link>
+      </h1>
+      <Router>
+        <SearchParams path="/"/>
+        <Details path="/details/:id"/>
+      </Router>
     </div>
   );
   // return React.createElement("div", {}, [

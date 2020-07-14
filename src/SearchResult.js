@@ -19,6 +19,7 @@ export default function SearchResult({ pets }) {
               gender={pet.gender}
               status={pet.status}
               media={pet.photos}
+              id={pet.id}
             />
           ))}
         </ul>
