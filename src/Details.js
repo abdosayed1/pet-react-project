@@ -26,6 +26,11 @@ export default class Details extends Component {
     });
   }
   render() {
+    if (this.state.loading){
+      return(<div>
+        loading.....
+      </div>)
+    }
     return (
       <div className="search-params searchlist">
         <h2>{this.state.name}</h2>
