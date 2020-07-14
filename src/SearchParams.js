@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import SearchResult from "./SearchResult";
+import useLocalStorage from "./UseLocalStorage";
 
 const SearchParams = () => {
   const [location, updateLocation] = useState("Seattle, WA");
@@ -9,6 +10,7 @@ const SearchParams = () => {
   const [pets, updatePets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+  const [prevPet, setPrevPet] = useLocalStorage('pets', '');
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -16,7 +18,7 @@ const SearchParams = () => {
       breed,
       type: animal,
     });
-
+    setPrevPet(animals);
     updatePets(animals || []);
   }
 
@@ -28,6 +30,10 @@ const SearchParams = () => {
       updateBreeds(breedStrings);
     }, console.error);
   }, [animal]);
+
+  useEffect(() => {
+    updatePets(prevPet);
+  }, [])
 
   return (
     <div className="search-params">

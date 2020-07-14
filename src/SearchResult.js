@@ -3,6 +3,7 @@ import Pet from "./Pet";
 
 export default function SearchResult({ pets }) {
   const petlist = pets;
+  
   return (
     <div className="searchlist">
       <h2>results</h2>
