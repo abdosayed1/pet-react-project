@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
 
 export default class Details extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
     };
   }
-  componentDidMount () {
-    pet.animal(this.props.id)
-    .then(({ animal }) => {
+  componentDidMount() {
+    pet.animal(this.props.id).then(({ animal }) => {
       this.setState({
         name: animal.name,
         animal: animal.type,
         location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
         description: animal.description,
-        media: animal.photos[0] ? animal.photos[0].medium : "https://via.placeholder.com/150/333",
+        media: animal.photos[0]
+          ? animal.photos[0].medium
+          : "https://via.placeholder.com/150/333",
         preed: animal.breeds.primary,
         age: animal.age,
         gender: animal.gender,
         status: animal.status,
-        loading: false
-      })
+        loading: false,
+      });
     });
   }
   render() {
-    if (this.state.loading){
-      return(<div>
-        loading.....
-      </div>)
+    if (this.state.loading) {
+      return <div>loading.....</div>;
     }
     return (
       <div className="search-params searchlist">
@@ -54,7 +53,6 @@ export default class Details extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-

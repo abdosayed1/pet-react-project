@@ -8,7 +8,7 @@ function Pet(props) {
   return (
     <li className="animal">
       <div className="photo">
-          <img src={avatar} />
+        <img src={avatar} />
       </div>
       <div className="info">
         <ul>
@@ -17,9 +17,7 @@ function Pet(props) {
           <li>Gender: {props.gender}</li>
           <li>Status: {props.status}</li>
           <li>Type: {props.animal}</li>
-          <Link to={`/details/${props.id}`}>
-            details
-          </Link>
+          <Link to={`/details/${props.id}`}>details</Link>
         </ul>
       </div>
       <div className="clearfix"></div>
