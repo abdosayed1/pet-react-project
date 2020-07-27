@@ -1,7 +1,18 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Link } from "@reach/router";
+import { Photo } from "@frontendmasters/pet";
 
-function Pet(props) {
+interface IProps {
+  media: Photo[];
+  name: string;
+  age: string;
+  gender: string;
+  status: string;
+  animal: string;
+  id: number;
+}
+
+const Pet: FunctionComponent<IProps> = (props) => {
   const avatar = props.media[0]
     ? props.media[0].medium
     : "https://via.placeholder.com/150/333";
@@ -20,7 +31,7 @@ function Pet(props) {
           <Link to={`/details/${props.id}`}>details</Link>
         </ul>
       </div>
-      <div className="clearfix"></div>
+      <div className="clearfix" />
     </li>
   );
   // return React.createElement("div", {}, [

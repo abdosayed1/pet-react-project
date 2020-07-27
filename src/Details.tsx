@@ -1,15 +1,42 @@
 import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
+import { RouteComponentProps, navigate } from "@reach/router";
 
-export default class Details extends Component {
-  constructor(props) {
+interface IMyComponentState {
+  loading: boolean;
+  name: string;
+  media: string;
+  animal: string;
+  age: string;
+  gender: string;
+  status: string;
+  preed: string;
+  location: string;
+  description: string;
+}
+
+export default class Details extends Component<RouteComponentProps<{id: string}>, IMyComponentState> {
+  public constructor(props: any) {
     super(props);
     this.state = {
       loading: true,
+      name: "",
+      media: "",
+      animal: "",
+      age: "",
+      gender: "",
+      status: "",
+      preed: "",
+      location: "",
+      description: ""
     };
   }
-  componentDidMount() {
-    pet.animal(this.props.id).then(({ animal }) => {
+  public componentDidMount() {
+    if(!this.props.id){
+      navigate('/');
+      return;
+    }
+    pet.animal(+this.props.id).then(({ animal }) => {
       this.setState({
         name: animal.name,
         animal: animal.type,
@@ -26,7 +53,7 @@ export default class Details extends Component {
       });
     });
   }
-  render() {
+  public render() {
     if (this.state.loading) {
       return <div>loading.....</div>;
     }

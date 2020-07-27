@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import pet, { ANIMALS } from "@frontendmasters/pet";
+import React, { useState, useEffect, useContext, FunctionComponent } from "react";
+import pet, { ANIMALS, Animal } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
+import { RouteComponentProps } from '@reach/router';
 import SearchResult from "./SearchResult";
-import useLocalStorage from "./UseLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 import ThemeContext from "./ThemeContext";
 
-const SearchParams = () => {
+const SearchParams: FunctionComponent<RouteComponentProps> = () => {
   const [location, updateLocation] = useState("Seattle, WA");
-  const [breeds, updateBreeds] = useState([]);
-  const [pets, updatePets] = useState([]);
+  const [breeds, updateBreeds] = useState([] as string[]);
+  const [pets, updatePets] = useState([] as Animal[]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
   const [prevPet, setPrevPet] = useLocalStorage("pets", "");
